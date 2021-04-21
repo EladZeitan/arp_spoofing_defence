@@ -1,0 +1,68 @@
+
+#: import NoTransition kivy.uix.screenmanager.NoTransition
+#: import Image kivy.uix.image.Image
+#=============================================
+
+ScreenManagement:
+    transition: NoTransition()
+
+    MainScreen:
+        id: MainScreen
+    AttacksLogScreen:
+        id: AttacksLogScreen
+
+
+<MainScreen>:
+
+    name: "MainScreen"
+
+    Image:
+        source: app.assets.MAIN_SCREEN
+        size_hint: 1,1
+        keep_ratio: True
+        allow_stretch: False
+
+    ImageButton:
+        id: view_attacks_button
+        source: app.assets.VIEW_ATTACKS_BUTTON
+        size_hint: 0.1666, 0.1428
+        pos: (510, 50)
+        keep_ratio: False
+        allow_stretch: False
+
+
+        on_release:
+            app.root.current = "AttacksLogScreen"
+
+#=============================================
+
+<AttacksLogScreen>:
+
+    name: "AttacksLogScreen"
+
+    Image:
+        source: app.assets.ATTACKS_LOG_SCREEN
+        size_hint: 1,1
+        keep_ratio: True
+        allow_stretch: False
+
+    ImageButton:
+        id: return_to_main
+        source: app.assets.BACK_BUTTON
+        size_hint: 0.1, 0.1
+        pos: (0, 0)
+        keep_ratio: False
+        allow_stretch: False
+
+        on_release:
+            app.root.current = 'MainScreen'
+
+    AttacksLog:
+        id: AttacksLog
+
+
+
+
+
+
+
